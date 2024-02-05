@@ -1,18 +1,18 @@
 import React from "react";
 
-function Login() {
+function LoginForm({ onSubmit }) {
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("I submit");
+    onSubmit();
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" name="username" placeholder="Enter username..." />
       <input type="password" name="password" placeholder="Enter password..." />
-      <button>Login</button>
+      <button type="submit">Login</button>
     </form>
   );
 }
 
-export default Login;
+export default LoginForm;

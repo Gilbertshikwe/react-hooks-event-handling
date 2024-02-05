@@ -1,26 +1,34 @@
 import React from "react";
 
-function ChangeItUp() {
-  function handleChange(event) {
-    console.log(`${event.target.name}: ${event.target.value}`);
-  }
+function SearchInput({ onChange }) {
+  return (
+    <input
+      type="text"
+      name="search"
+      onChange={onChange}
+      placeholder="Enter search term..."
+    />
+  );
+}
 
+function FilterSelect({ onChange }) {
+  return (
+    <select name="filter" onChange={onChange}>
+      <option value="all">Select a filter...</option>
+      <option value="completed">Completed</option>
+      <option value="incomplete">Incomplete</option>
+    </select>
+  );
+}
+
+function ChangeItUp({ onChange }) {
   return (
     <div>
-      <input
-        type="text"
-        name="search"
-        onChange={handleChange}
-        placeholder="Enter search term..."
-      />
-
-      <select name="filter" onChange={handleChange}>
-        <option value="all">Select a filter...</option>
-        <option value="completed">Completed</option>
-        <option value="incomplete">Incomplete</option>
-      </select>
+      <SearchInput onChange={onChange} />
+      <FilterSelect onChange={onChange} />
     </div>
   );
 }
 
 export default ChangeItUp;
+

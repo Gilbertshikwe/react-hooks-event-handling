@@ -1,17 +1,18 @@
 import React from "react";
 
-function MultiButton() {
-  function handleClick(number) {
-    console.log(`Button ${number} was clicked`);
-  }
+function SingleButton({ number, onClick }) {
+  return <button onClick={() => onClick(number)}>Button {number}</button>;
+}
 
+function MultiButton({ onButtonClick }) {
   return (
     <div>
-      <button onClick={handleClick}>Button 1</button>
-      <button onClick={handleClick}>Button 2</button>
-      <button onClick={handleClick}>Button 3</button>
+      <SingleButton number={1} onClick={onButtonClick} />
+      <SingleButton number={2} onClick={onButtonClick} />
+      <SingleButton number={3} onClick={onButtonClick} />
     </div>
   );
 }
 
 export default MultiButton;
+
